@@ -118,7 +118,7 @@ app.use ((err, req, res, next)=>{
 
 //LEER LOCALHOST DE VARIABLES Y PORT
 const host = process.env.HOST;
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 
 //ESCUCHANDO EL PUERTO
 app.listen(port, host, ()=> {
