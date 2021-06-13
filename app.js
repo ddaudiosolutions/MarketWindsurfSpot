@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== "production"){
     dotenv.config()
 }
 
-console.log(process.env.SECRET)
+//console.log(process.env.SECRET)
 
 import express from 'express';
 import mongoose from 'mongoose';
@@ -118,7 +118,7 @@ app.use ((err, req, res, next)=>{
 
 //LEER LOCALHOST DE VARIABLES Y PORT
 const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 4000;
+const port = process.env.port || 4000;
 
 //ESCUCHANDO EL PUERTO
 app.listen(port, host, ()=> {
