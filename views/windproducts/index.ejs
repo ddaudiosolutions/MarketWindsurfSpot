@@ -1,0 +1,79 @@
+<% layout('layouts/boilerplate')%>
+    <h1>ALL WIND-PRODUCTS</h1>
+    <form name="producto" id="producto" action="/windproducts" method="POST">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">Todo </label>
+      </div>
+      <%for (let tipo_producto of productos){%>  
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="productoSel" value="<%=tipo_producto%>" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2"><%=tipo_producto%> </label>
+        </div>
+
+        <% }%> 
+        <button class="btn btn-success mb-3">Mostrar Productos</button>
+      </form>
+    <!-- <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="todo" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Todo
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="tabla"i d="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+          Tablas
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="vela" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+          Velas
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="botavara" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+          Botavaras
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="productoSel" value="aleta" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+          Aletas
+        </label>
+      </div> -->
+    
+     <!-- <form name="producto" id="producto" action="/windproducts" method="POST">
+        <select name="productoSel" id="productoSel">
+            <option value=" ">Todo</option>
+            <option value="vela">Vela</option>
+            <option value="tabla">Tabla</option>
+        </select>
+         <button class="btn btn-success">Mostrar Productos</button>
+
+    </form>  -->
+
+        <div class="container">                     
+              <div class="row">
+                <%for (let windproduct of windproducts){%>  
+                <div class="col-sm-12 col-md-2 d-flex">        
+                  <div class="card mb-2 " >  
+                      <img class="img-thumbnail img-center m-1 flex-fill" src="<%= windproduct.image %>" alt="">                                                             
+                      <div class="card-header text-center">
+                        <h5><%= windproduct.title %> </h5>                      
+                    </div>   
+                      <div class="card-body text-center">
+                        <p style="color:red"><%= windproduct.price %>€</p>
+                      </div>                    
+                    <div class="card-body text-center">
+                      <a class="btn btn-primary" href="/windproducts/<%= windproduct._id %> ">Ver</a>
+                    </div> 
+                  </div>   
+                </div>   
+
+                <% }%> 
+            </div>
+        </div>
+     <a href="/windproducts/new">New Wind-Product</a>

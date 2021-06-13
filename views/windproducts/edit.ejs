@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate')%>
+    <h2 class="text-center">EDIT WINDSPOT</h2>
+    <div class="col-6 offset-3">
+        <form action="/windproducts/<%=windproduct._id%>?_method=PUT" method="POST" novalidate class="validated-form" >
+            <div class="mb-3">
+                <label for="title" class="form-label">Product Name</label>
+                <input type="input" class="form-control" id="title"  name='windproduct[title]' value="<%= windproduct.title%>" >
+                <div class="invalid-feedback">Introduce un nombre para el Spot</div>
+                <div class="valid-feedback">Nombre del Spot Correcto</div>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Produt Price</label>
+                <input type="input" class="form-control" id="price" name='windproduct[price]' value="<%= windproduct.price%>">
+                <div class="invalid-feedback">Introduce una localización para el Spot</div>
+                <div class="valid-feedback">Localización correcta</div>
+            </div>
+            <div class="mb-3">
+                <label for="tipoPr" class="form-label">TIPO PRODUCTO</label>
+                <select class="form-select" name="windproduct[tipo_producto]" id="tipo_producto">
+                    <% for (let tipo_producto of productos){%>
+                        <option value="<%=tipo_producto%>" <%=windproduct.tipo_producto === tipo_producto ? 'selected' : '' %>><%= tipo_producto %> </option>
+                        <%}%>
+                </select>                
+            </div>            
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripción Producto</label>
+                <textarea type="input" class="form-control" id="description" name='windproduct[description]' value="<%= windproduct.description%>"></textarea>    
+                <div class="invalid-feedback">Describe el spot (vientos favorables, acceso al mar, parking, espacio para montaje, etc...)</div>
+                <div class="valid-feedback">Gracias por la descripción</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Producto Image Url</label>
+                <input type="text" class="form-control" id="image" name="windproduct[image]" value="<%= windproduct.image %> ">
+                <div class="invalid-feedback">Introduce una URL valida de la imagen</div>
+                <div class="valid-feedback">Gracias por la foto</div>
+            </div>
+            
+            <button class="btn btn-primary">Update WindProduct</button>
+        </form>
+
+    </div>
+  
+     

@@ -1,0 +1,34 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-6" >
+            <img src="<%= windproduct.image %>"  class="rounded img-thumbnail card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title"><%=windproduct.title%></h4>
+              <p class="card-text"> <%= windproduct.description %> </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item " style="color: red;"><%= windproduct.price %>€</li>
+              <li class="list-group-item"><%=windproduct.description %></li>
+              <li class="list-group-item"><%= windproduct.tipo_producto %> </li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link btn btn-warning"href="/windproducts/edit/<%=windproduct._id %>">Edit WindProduct</a>
+              <form class="d-inline" action="/windproducts/<%=windproduct._id%>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete WindProduct</button>
+              </form> 
+            </div>
+            <div class="card-footer text-muted">
+                3 days ago
+                <!-- <a class="btn btn-info" href="/windspots">Back To Index</a> -->
+              </div>
+        </div>
+
+    </div>
+
+</div>
+    
+    <footer>
+        
+    </footer>

@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate')%> 
+    <h2 class="text-center">INTRO NEW WINDPRODUCT</h2>
+    <div class="col-6 offset-3">
+        <form action="/windproducts/new" method="POST" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label for="title" class="form-label">ANUNCIO</label>
+                <input type="input" class="form-control" id="title" name='windproduct[title]' required>
+                <div class="invalid-feedback">Introduce un nombre para el Spot</div>
+                <div class="valid-feedback">Nombre del Spot Correcto</div>
+            </div>           
+            <div class="mb-3">
+                <label for="description" class="form-label">DESCRIPCION</label>
+                <textarea type="input" class="form-control" id="description" name='windproduct[description]' required></textarea>
+                <div class="invalid-feedback">Describe el spot (vientos favorables, acceso al mar, parking, espacio para montaje, etc...)</div>
+                <div class="valid-feedback">Gracias por la descripción</div>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">PRECIO</label>
+                <input type="input" class="form-control" id="price" name="windproduct[price]" required>
+                <div class="invalid-feedback">Introduce un precio válido</div>
+                <div class="valid-feedback">Precio correcta</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">WindProduct Images Url</label>
+                <input type="text" class="form-control" id="image" name="windproduct[image]" required>
+                <div class="invalid-feedback">Introduce una URL valida de la imagen</div>
+                <div class="valid-feedback">Gracias por la foto</div>
+            </div>
+            <div class="mb-3">
+                <label for="tipoPr" class="form-label">TIPO PRODUCTO</label>
+                <select class="form-select" name="windproduct[tipo_producto]" id="tipo_producto" required>
+                    <% for (let tipo_producto of productos){%>
+                        <option value="<%=tipo_producto%>"><%=tipo_producto%></option>
+                        <%}%>
+                </select>                
+            </div>            
+            <button class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+    
+  
+    

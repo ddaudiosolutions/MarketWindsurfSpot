@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate')%>
+    <h1>BUSQUEDA  WIND-PRODUCTS</h1>
+    <form name="producto" id="producto" action="/windproducts" method="POST">
+      <%for (let tipo_producto of productos){%>  
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="productoSel" value="<%=tipo_producto%>" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2"><%=tipo_producto%> </label>
+        </div>
+
+        <% }%> 
+        <button class="btn btn-success mb-3">Mostrar Productos</button>
+      </form>
+    
+
+        <ul>
+            <%for (let windproduct of windproducts){%>           
+            
+              <div class="card mb-3">
+                  <div class="row ">
+                      <div class="col-md-4">
+                          <img class="rounded img-thumbnail image-fluid m-1 " src="<%= windproduct.image %>" alt="">
+                      </div>
+                      <div class="col-md-8">
+                          <div class="card-body">
+                              <h5 class="card-title"><%= windproduct.title %></h5>
+                              <p class="card-text"><%= windproduct.description %> </p>
+                              <p class="card-text"><%= windproduct.location %> </p>                        
+                              <a class="btn btn-primary" href="/windproducts/<%= windproduct._id %> ">Ver</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <% }%> 
+        </ul>
+    
