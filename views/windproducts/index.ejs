@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate')%>
   <div class="text-center">
-    <img src="/assets/images/2ND HAND WINDSURF MARKET .png" alt="" class="mb-5">
+    <img src="/assets/images/2ND HAND WINDSURF MARKET .png" alt="" class="mb-5 img-fluid">
   </div>
     <!-- <h1 class="text-center">TODOS LOS PRODUCTOS </h1> -->
     <form class="text-center" name="producto" id="producto" action="/windproducts" method="POST">
@@ -61,11 +61,11 @@
         <div class="container">                     
               <div class="row">
                 <%for (let windproduct of windproducts){%>  
-                <div class="col-sm-12 col-md-2 d-flex">        
-                  <div class="card mb-2 " >  
-                      <img class="img-thumbnail img-center m-1 flex-fill" src="<%= windproduct.image %>" alt="">                                                             
+                <div class="col-sm-auto col-md-auto col-lg-2  ">        
+                  <div class="card mb-2 ">  
+                      <img class="img-thumbnail img-center img-fluid m-1 flex-fill d-flex" src="<%= windproduct.image %>" alt="">                                                             
                       <div class="card-header text-center">
-                        <h5><%= windproduct.title %> </h5>                      
+                        <h5 ><%= windproduct.title %> </h5>                      
                     </div>   
                       <div class="card-body text-center">
                         <p style="color:red"><%= windproduct.price %>€</p>
